@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Student Management System</h1>
+        
+        <!-- Registration Form Component -->
+        <div class="form-container">
+            <div class="form-header">
+                <span id="form-title">🎓 Register New Student</span>
+            </div>
+            <div class="form-body">
+                <div id="form-message" class="form-message" aria-live="polite"></div>
+            <form id="student-form">
+                <input type="hidden" id="is-edit" value="false">
+                
+                <div class="form-group">
+                    <label>Student ID:</label>
+                    <input type="text" id="studentId" required>
+                </div>
+                <div class="form-group">
+                    <label>First Name:</label>
+                    <input type="text" id="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label>Last Name:</label>
+                    <input type="text" id="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Course:</label>
+                    <input type="text" id="course" required>
+                </div>
+                <div class="form-group">
+                    <label>Batch:</label>
+                    <input type="text" id="batch" required>
+                </div>
+                <div class="form-group">
+                    <label>Age:</label>
+                    <input type="number" id="age" required min="15" max="120" step="1">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" id="submit-btn">Register Student</button>
+                    <button type="button" id="cancel-btn" style="display:none;">Cancel Edit</button>
+                </div>
+            </form>
+
+            <div id="panel-chart" class="panel-chart">
+                <h3>Quick Student Overview</h3>
+                <div class="overview-summary">
+                    <div class="summary-card">
+                        <span class="summary-value" id="summary-total">0</span>
+                        <span class="summary-label">Total Students</span>
+                    </div>
+                    <div class="summary-card">
+                        <span class="summary-value" id="summary-courses">0</span>
+                        <span class="summary-label">Course Categories</span>
+                    </div>
+                    <div class="summary-card">
+                        <span class="summary-value" id="summary-top">0</span>
+                        <span class="summary-label">Top Course Count</span>
+                    </div>
+                </div>
+                <div class="chart-legend">Student count by course</div>
+                <div id="course-chart" class="course-chart"></div>
+            </div>
+
+            </div>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="search-sort-container">
+            <input type="text" id="search-input" placeholder="Search by First Name or Course...">
+            <select id="sort-select">
+                <option value="default">Default (Sort by ID)</option>
+                <option value="name_asc">Name (A-Z)</option>
+                <option value="name_desc">Name (Z-A)</option>
+                <option value="age_low">Age (Low-High)</option>
+                <option value="age_high">Age (High-Low)</option>
+            </select>
+        </div>
+
+        <!-- Display Records Table -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Course</th>
+                        <th>Batch</th>
+                        <th>Age</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="student-table-body">
+                    <!-- Dynamic Rows Insertion -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
